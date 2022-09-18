@@ -4,7 +4,7 @@
 class Player
 
   def hand
-
+      
       puts "数字を入力してください。"# プレイヤーにじゃんけんの手を選択させる文章を表示させます。
 
       puts "0:グー"
@@ -13,28 +13,15 @@ class Player
 
       puts "2:パー"
 
-      input_hand =gets.to_i# 変数「input_hand」にプレイヤーの入力値を代入します。# ヒント：getsメソッドについて調べてみましょう。
-
-      while true# 「input_hand」が「0, 1, 2」のいずれかだと繰り返し処理を終了し、それ以外（アルファベットも含む）だと繰り返し処理を継続します。
-          i = [0,1,2]
-          if i.include?(input_hand)
-
-              return input_hand# 「input_hand」をそのまま返す。ヒント：戻り値を返して繰り返し処理を終了させたい場合、「return」を使用します。
-
-          else# else それ以外の場合
-
-              puts "0〜2の数字を入力してください。"# プレイヤーに「0〜2」を入力させる文章を表示させる。puts "0〜2の数字を入力してください。"
-
-              puts "0:グー, 1:チョキ, 2:パー"# puts "0:グー, 1:チョキ, 2:パー"
-
-              input_hand = gets.to_i# 変数「input_hand」にプレイヤーの入力値を代入します。
-
-          end# end if文のend
-
-      end
-
-  end
-
+      input_hand =gets.chomp
+      unless  input_hand ==  "0" || input_hand  == "1" || input_hand  == "2"
+        puts "もう一度数字を入力してください"
+        return hand.to_i
+       else
+        input_hand = input_hand.to_i
+        return  input_hand
+       end    
+   end
 end
 
 #-----------------------------------------------------------------------
